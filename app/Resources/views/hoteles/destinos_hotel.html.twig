@@ -1,0 +1,374 @@
+{% extends 'index.html.twig' %}
+    {% block body %}
+    <!-- *********************************************************************************************************
+                                                Barra de navegación
+    **************************************************************************************************************-->
+       
+    {%block navegacion%}
+
+     {{ parent()}}
+     
+     
+        {%endblock%} 
+
+
+    <!-- *********************************************************************************************************
+                                                FILTRO DE ELEMENTOS
+    **************************************************************************************************************-->
+    <div class="text-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent w-100 mt-3">
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="{{path('homepage')}}">Inicio</a></li>
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="{{path('hoteles')}}">Hoteles</a></li>
+           
+                <li class="breadcrumb-item active" aria-current="page">{{region}}</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="container-fluid mb-5">
+        <p class="text-left">Paso 1: Escoge tu hotel</p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+                aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 33%">
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row row-cols-sm-1">
+            <div class="dropdown mb-3 col-sm-6 p-3 d-block d-md-none">
+            <!-- Filtro para teléfono -->
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Filtrar <i class="fas fa-filter"></i>
+                </button>
+                <div class="dropdown-menu col-sm-12" aria-labelledby="dropdownMenuButton">
+                    <div class="close mr-2"><i class="fas fa-window-close"></i></div>
+                    <div id="filtro-hoteles" class="p-3">
+                        <h2 class="h5 text-center text-muted">Filtrar</h2>
+                        
+                 {{ form_start(form2) }}
+                 {{ form_errors(form2) }}
+                <ul id="categoria" class="list-unstyled">
+                    <h3 class="h6">Categor&iacute;a</h3>
+                    <li class="form-check">
+                        {{ form_widget(form2.cinco,{attr:{'class':'form-check-input','id':'five-stars' } }) }}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        {{ form_label(form2.cinco,' ') }}
+                        {{ form_errors(form2.cinco) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form2.cuatro,{attr:{'class':'form-check-input','id':'four-stars' } }) }}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                                
+                        {{ form_label(form2.cuatro,' ') }}
+                        {{ form_errors(form2.cuatro) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form2.tres,{attr:{'class':'form-check-input','id':'three-stars' } }) }}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>      
+                        {{ form_label(form2.tres,' ') }}
+                        {{ form_errors(form2.tres) }}
+                    </li>
+                    {{ form_row(form2.save1,{attr:{'class':'btn p-1 mt-1 btn-sm'} }) }}
+                </ul>
+
+                <ul id="franquicia" class="list-unstyled">
+                    <h3 class="h6">Cadena hotelera</h3>
+                    <li class="form-check">
+                        {{ form_widget(form2.Melia,{attr:{'class':'form-check-input','id':'melia' } }) }}
+                        {{ form_label(form2.Melia,'Meliá ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantM}}</span>
+                        {{ form_errors(form2.Melia) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form2.Iberostar,{attr:{'class':'form-check-input','id':'iberostar' } }) }}
+                        {{ form_label(form2.Iberostar,'Iberostar ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantI}}</span>
+                        {{ form_errors(form2.Iberostar) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form2.Roc,{attr:{'class':'form-check-input','id':'roc' } }) }}
+                        {{ form_label(form2.Roc,'Roc ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantR}}</span>
+                        {{ form_errors(form2.Roc) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form2.BlueDiamond,{attr:{'class':'form-check-input','id':'blueDiamond' } }) }}
+                        {{ form_label(form2.BlueDiamond,'Blue Diamond') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantB}}</span>
+                        {{ form_errors(form2.BlueDiamond) }}
+                    </li>
+                    <li class="form-check">
+                       
+                        {{ form_widget(form2.Solways,{attr:{'class':'form-check-input','id':'solways' } }) }}
+                        {{ form_label(form2.Solways,'Solways ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantS}}</span>
+                        {{ form_errors(form2.Solways) }}
+                    </li>
+                    <li class="form-check">
+                       
+                        {{ form_widget(form2.Paradisus,{attr:{'class':'form-check-input','id':'paradisus' } }) }}
+                        {{ form_label(form2.Paradisus,'Paradisus') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantP}}</span>
+                        {{ form_errors(form2.Paradisus) }}
+                    </li>
+                    {{ form_row(form2.save2,{attr:{'class':'btn p-1 mt-1 btn-sm'} }) }}
+                </ul>
+
+                <ul id="precio-hoteles" class="list-unstyled">
+                    <h3 class="h6">Precio por noche</h3>
+                    <li class="form-check">
+                      
+                        {{ form_widget(form2.bajo,{attr:{'class':'form-check-input','id':'bajo' } }) }}
+                        {{ form_label(form2.bajo,'$0 - $99') }}
+                        {{ form_errors(form2.bajo) }}
+                    </li>
+                    <li class="form-check">
+                     
+                        {{ form_widget(form2.economico,{attr:{'class':'form-check-input','id':'medio-bajo' } }) }}
+                        {{ form_label(form2.economico,'$100 - $199') }}
+                        {{ form_errors(form2.economico) }}
+                    </li>
+                    <li class="form-check">
+                 
+                        {{ form_widget(form2.medio,{attr:{'class':'form-check-input','id':'medio' } }) }}
+                        {{ form_label(form2.medio,'$200 - $299') }}
+                        {{ form_errors(form2.medio) }}
+                    </li>
+                    <li class="form-check">
+                       
+                        {{ form_widget(form2.alto,{attr:{'class':'form-check-input','id':'medio-alto' } }) }}
+                        {{ form_label(form2.alto,'$300 - $399') }}
+                        {{ form_errors(form2.alto) }}
+                    </li>
+                    <li class="form-check">
+                      
+                        {{ form_widget(form2.lujoso,{attr:{'class':'form-check-input','id':'alto' } }) }}
+                        {{ form_label(form2.lujoso,'$400 - $499') }}
+                        {{ form_errors(form2.lujoso) }}
+                    </li>
+                    <li class="form-check">
+                  
+                        {{ form_widget(form2.muycaro,{attr:{'class':'form-check-input','id':'muy-alto' } }) }}
+                        {{ form_label(form2.muycaro,'$500 +') }}
+                        {{ form_errors(form2.muycaro) }}
+                    </li>
+                    {{ form_row(form2.save3,{attr:{'class':'btn p-1 mt-1 btn-sm'} }) }}
+                </ul>
+                {{ form_end(form2) }}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filtro para pc y tablets -->
+            <div id="filtro-hoteles" class="col-md-3 bg-light p-3 shadow d-none d-md-block h-100">
+                <h2 class="h5 text-center text-muted">Filtrar</h2>
+                 {{ form_start(form) }}
+                 {{ form_errors(form) }}
+                <ul id="categoria" class="list-unstyled">
+                    <h3 class="h6">Categor&iacute;a</h3>
+                    <li class="form-check">
+                        {{ form_widget(form.cinco,{attr:{'class':'form-check-input','id':'five-stars' } }) }}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        {{ form_label(form.cinco,' ') }}
+                        {{ form_errors(form.cinco) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form.cuatro,{attr:{'class':'form-check-input','id':'four-stars' } }) }}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                                
+                        {{ form_label(form.cuatro,' ') }}
+                        {{ form_errors(form.cuatro) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form.tres,{attr:{'class':'form-check-input','id':'three-stars' } }) }}
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>      
+                        {{ form_label(form.tres,' ') }}
+                        {{ form_errors(form.tres) }}
+                    </li>
+
+                    
+                    {{ form_widget(form.save1,{attr:{'class':'btn p-1 mt-1 btn-sm'} }) }}
+                     
+
+
+
+                </ul>
+
+                <ul id="franquicia" class="list-unstyled">
+                    <h3 class="h6">Cadena hotelera</h3>
+                    <li class="form-check">
+                        {{ form_widget(form.Melia,{attr:{'class':'form-check-input','id':'melia' } }) }}
+                        {{ form_label(form.Melia,'Meliá ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantM}}</span>
+                        {{ form_errors(form.Melia) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form.Iberostar,{attr:{'class':'form-check-input','id':'iberostar' } }) }}
+                        {{ form_label(form.Iberostar,'Iberostar ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantI}}</span>
+                        {{ form_errors(form.Iberostar) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form.Roc,{attr:{'class':'form-check-input','id':'roc' } }) }}
+                        {{ form_label(form.Roc,'Roc ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantR}}</span>
+                        {{ form_errors(form.Roc) }}
+                    </li>
+                    <li class="form-check">
+                        {{ form_widget(form.BlueDiamond,{attr:{'class':'form-check-input','id':'blueDiamond' } }) }}
+                        {{ form_label(form.BlueDiamond,'Blue Diamond') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantB}}</span>
+                        {{ form_errors(form.BlueDiamond) }}
+                    </li>
+                    <li class="form-check">
+                       
+                        {{ form_widget(form.Solways,{attr:{'class':'form-check-input','id':'solways' } }) }}
+                        {{ form_label(form.Solways,'Solways ') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantS}}</span>
+                        {{ form_errors(form.Solways) }}
+                    </li>
+                    <li class="form-check">
+                       
+                        {{ form_widget(form.Paradisus,{attr:{'class':'form-check-input','id':'paradisus' } }) }}
+                        {{ form_label(form.Paradisus,'Paradisus') }} <span id="cantidad-hotel-tipo" class="badge badge-success"> {{cantP}}</span>
+                        {{ form_errors(form.Paradisus) }}
+                    </li>
+                    {{ form_row(form.save2,{attr:{'class':'btn p-1 mt-1 btn-sm'} }) }}
+                </ul>
+
+                <ul id="precio-hoteles" class="list-unstyled">
+                    <h3 class="h6">Precio por noche</h3>
+                    <li class="form-check">
+                      
+                        {{ form_widget(form.bajo,{attr:{'class':'form-check-input','id':'bajo' } }) }}
+                        {{ form_label(form.bajo,'$0 - $99') }}
+                        {{ form_errors(form.bajo) }}
+                    </li>
+                    <li class="form-check">
+                     
+                        {{ form_widget(form.economico,{attr:{'class':'form-check-input','id':'medio-bajo' } }) }}
+                        {{ form_label(form.economico,'$100 - $199') }}
+                        {{ form_errors(form.economico) }}
+                    </li>
+                    <li class="form-check">
+                 
+                        {{ form_widget(form.medio,{attr:{'class':'form-check-input','id':'medio' } }) }}
+                        {{ form_label(form.medio,'$200 - $299') }}
+                        {{ form_errors(form.medio) }}
+                    </li>
+                    <li class="form-check">
+                       
+                        {{ form_widget(form.alto,{attr:{'class':'form-check-input','id':'medio-alto' } }) }}
+                        {{ form_label(form.alto,'$300 - $399') }}
+                        {{ form_errors(form.alto) }}
+                    </li>
+                    <li class="form-check">
+                      
+                        {{ form_widget(form.lujoso,{attr:{'class':'form-check-input','id':'alto' } }) }}
+                        {{ form_label(form.lujoso,'$400 - $499') }}
+                        {{ form_errors(form.lujoso) }}
+                    </li>
+                    <li class="form-check">
+                  
+                        {{ form_widget(form.muycaro,{attr:{'class':'form-check-input','id':'muy-alto' } }) }}
+                        {{ form_label(form.muycaro,'$500 +') }}
+                        {{ form_errors(form.muycaro) }}
+                    </li>
+                    {{ form_row(form.save3,{attr:{'class':'btn p-1 mt-1 btn-sm'} }) }}
+                </ul>
+                {{ form_end(form) }}
+            </div>
+
+            <div class="col-md-9">
+                <div class="row row-cols-sm-1">
+                    <div id="hoteles-habana-del-este" class="mb-2 container">
+                        <h2 class="mb-5 text-wrap">Hoteles en Playas del Este de La Habana</h2>
+                        <ul id="lista-hoteles" class="list-unstyled">  
+                            {% for hotel in hoteles %}
+                           
+                            <a class="text-decoration-none shadow text-reset" href=".{{path('hotel-reserva',{'id':hotel.getid})}}">
+                                <li>
+                                    <div class="card shadow hotel-card mb-3">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                            
+                                         {% set url = " " %}
+                                        {% for foto in hotel.getFotos %}
+                                            {% if  loop.index ==2 %}
+                                            {% set url = foto.getUrl%}
+                                            {% endif %}
+                                        {%endfor%}
+                                                <img src="{{asset(url)}}"
+                                                class="mr-3" alt="...">
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="card-body">
+                                                    <h3 id="hotel-name" class="mt-0 mb-1">{{hotel.getNombre}}</h3>
+                                                    <span id="hotel-categoria" class="badge badge-light">
+                                                        {%for i in 1..hotel.getCategoria%}
+                                                            <i class="fas fa-star"></i>
+                                                        {%endfor%}
+                                                    </span>
+                                                    <h4 id="hotel-short-description" class="mt-2">{{hotel.getCadena}}</h4>
+                                                    <span id="hotel-ubicacion" class="badge badge-light"><i
+                                                                class="fas fa-map-marker-alt text-danger"></i> {{hotel.getRegion}}</span>
+                                                    <p id="price-box">
+                                                        desde <br/>
+                                                        {% set precio = 0 %}
+                                                         {% for temp in hotel.getTemporadas %}
+                                                             {% if  temp.getInicio < date('now') and  temp.getFin >  date('now') %}
+                                                             {% set precio = temp.getDoble%}
+                                                             {% endif %}
+                                                         {%endfor%}
+                           
+                                                        <span id="hotel-precio" class="badge badge-light">{{precio}} USD</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </a>
+                            
+                          {% endfor %}       
+                        </ul>
+                        <nav aria-label="Pagination de hoteles">
+                            {%if maxPages > 1 %}
+                            <ul class="pagination pagination-sm justify-content-center">
+                                {%if page > 1%}
+                                <li class="page-item disabled">
+                                    <a href="#" class="page-link">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                {%endif%} 
+                                
+                                {%for i in 1..maxPages %}
+                                <li class="page-item"><a href="{{path('hotel-region',{'region':hoteles[0].getRegion,'page':i} )}}" class="page-link">{{i}}</a></li>
+                                {%endfor%}
+                                
+                                {%if page < maxPages %}
+                                 <li class="page-item">
+                                    <a href="la_habana2.html" class="page-link">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                                {%endif%}
+                            </ul>
+                               {%endif%}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+  {% endblock %}

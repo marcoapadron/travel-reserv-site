@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    
+    <div>
+        <h1>Hotel:{{hotel.getNombre}}{{hotel.getCadena}}</h1>
+        <h2>Categoria{{hotel.getCategoria}}Estrellas</h2>
+        <h3>Tabla de precios para {{habitacion.getTipo}}</h3>
+        {%for temporada in hotel.getTemporadas%}
+            <p>{{temporada.getInicio|date("d-m")}}<br>{{temporada.getFin|date("d-m")}}:<br>
+                Precio:{{temporada.getPrecio}}
+                Rebaja:{{temporada.getRebaja}}
+            </p>
+        {% endfor %}
+    </div>
+    <div>
+   {{ form_start(form) }}
+   {{ form_widget(form) }}
+   {{ form_end(form) }}
+   </div>
+{% endblock%}

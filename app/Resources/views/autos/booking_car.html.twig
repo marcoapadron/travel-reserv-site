@@ -1,0 +1,485 @@
+{% extends "autos/index.html.twig" %}
+{% block body %}
+    <!-- *********************************************************************************************************
+                                                Barra de navegación
+    **************************************************************************************************************-->
+   {%block navegacion%}
+
+     {{ parent()}}
+     
+     
+        {%endblock%} 
+
+    <div class="container my-5">
+        <p class="text-center">Paso 2: Informaci&oacute;n de reserva</p>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar"
+                aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: 66%"></div>
+        </div>
+    </div>
+
+    <section id="booking-car-info" class="row row-cols-sm-1 row-cols-md-2">
+        <div id="imagen-auto" class="col-sm-12 col-md-6">
+            <div id="car-name" class="carousel slide container" data-ride="carousel">
+                <h2 id="car-name">Car type - {{auto.getMarca}}</h2>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../assets/img/autos/Mercedes_C_class.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+
+                <!-- *********************************************************************************************************
+                                                INFORMACION DEL AUTO
+    **************************************************************************************************************-->
+                <section id="info-auto" class="col-sm-12 mb-5 mt-1">
+                    <nav>
+                        <div class="nav nav-pills" role="tablist">
+                            <a class="nav-item nav-link active" id="nav-car-info-tab" data-toggle="tab"
+                                href="#nav-car-info" role="tab" aria-controls="nav-car-info" aria-selected="true"><i
+                                    class="fas fa-car"></i> <i class="fas fa-info-circle"></i>
+                            </a>
+                            <a class="nav-item nav-link ml-1" id="nav-car-config-tab" data-toggle="tab"
+                                href="#nav-car-config" role="tab" aria-controls="nav-car-config" aria-selected="true"><i
+                                    class="fas fa-car"></i> <i class="fas fa-cog"></i>
+                            </a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="info-carContent">
+                        <div class="tab-pane fade show active pt-2" id="nav-car-info" role="tabpanel"
+                            aria-labelledby="nav-car-info-tab">
+                            <h2 class="text-danger">Informaci&oacute;n importante</h2>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">El seguro (relevo de responsabilidad) est&aacute;
+                                    inclu&iacute;do en el precio del veh&iacute;culo
+                                </li>
+                                <li class="list-group-item">En los autos con transmisi&oacute;n autom&aacute;tica, el
+                                    precio incluye la tarifa por transmisi&oacute;n autom&aacute;tica (pol&iacute;tica
+                                    del proveedor)
+                                </li>
+                                <li class="list-group-item">Solo podr&aacute; abastecerse de combustible al
+                                    veh&iacute;culo con el
+                                    combustible establecido por contrato.
+                                </li>
+                                <li class="list-group-item">
+                                    Todas las reservas confirmadas en los aeropuertos internacionales, tendr&aacute;n un
+                                    suplemento de $20.00 USD, el cual tendr&aacute; que abonar el usuario de <strong>EL CLIENTE</strong>
+                                    en el momento de la apertura del contrato en la oficina de ventas.
+                                </li>
+                                <li class="list-group-item">
+                                    En caso de accidente, robo total o parcial se deber&aacute; proceder a comunicarlo a
+                                    la Agencia m&aacute;s cercana al lugar del suceso y realizar la denuncia a la
+                                    polic&iacute;a, la cual servir&aacute; para conocer la culpabilidad o no del <strong>CLIENTE</strong>
+                                </li>
+                                <li class="list-group-item">
+                                    El auto deber&aacute; ser entregado a la hora pactada en el contrato o hasta 3 horas
+                                    posteriores. De incumplir con la misma se proceder&aacute; a cobrar el importe
+                                    equivalente de 1 día extra sin pr&oacute;rroga.
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>EL CLIENTE</strong> es responsable ante la violaci&oacute;n de alguna o todas las
+                                    cl&aacute;usulas del contrato particular de arrendamiento y a tal efecto ser&aacute;
+                                    penalizado seg&uacute;n corresponda
+                                </li>
+                                <li class="list-group-item">
+                                    El per&iacute;odo m&iacute;nimo de renta es de 3 d&iacute;as en los per&iacute;odos
+                                    que incluyen la temporada de alta tur&iacute;stica, de 5 d&iacute;as para los
+                                    per&iacute;odos de temporada extrema alta
+                                </li>
+                                <li class="list-group-item">
+                                    El per&iacute;odo m&aacute;ximo de renta es de 30 d&iacute;as. Para servicios por
+                                    per&iacute;odo mayor de 30 hasta 59 d&iacute;as debe realizarse la solicitud de dos
+                                    servicios, siendo el segundo pr&oacute;rroga del primero, por lo que el total del
+                                    per&iacute;odo solicitado tendr&aacute; dos n&uacute;meros de confirmaci&oacute;n.
+                                    No se confirmar&aacute;n pr&oacute;rrogas de servicios por un per&iacute;odo total
+                                    mayor a 59 d&iacute;as
+                                </li>
+                                <li class="list-group-item">
+                                    No se confirmar&aacute;n servicios en Cayo Santa Mar&iacute;a, ni aperturas,
+                                    pr&oacute;rrogas o liquidaciones de contratos
+                                </li>
+                                <li class="list-group-item">
+                                    En caso de que el per&iacute;odo de la renta abarque m&aacute;s de una temporada el
+                                    precio que se fija es el de la temporada donde comienza la renta
+                                </li>
+                                <li class="list-group-item">
+                                    En los servicios de disponibilidad no se aceptar&aacute;n modificaciones de cambio
+                                    de nombre
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>DEMORA:</strong> Transcurrido el tiempo de Release (3 horas posterior a la
+                                    hora confirmada en la reservaci&oacute;n, excepto en los aeropuertos que se
+                                    consideran las 3 horas a partir de la llegada del vuelo) sin la presentaci&oacute;n
+                                    del usuario en la oficina de ventas pactada, seg&uacute;n solicitud y
+                                    confirmaci&oacute;n, se considera demora y queda a opci&oacute;n de la oficina de
+                                    ventas decretar el no show por no presentaci&oacute;n del usuario
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>NO SHOW</strong>: <strong>El CLIENTE</strong> pagar&aacute; una penalidad ascendente al 100%
+                                    del importe correspondiente de un d&iacute;a de renta
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>FACTURACI&Oacute;N:</strong> Se realizar&aacute; la facturaci&oacute;n total
+                                    del servicio aplicando la temporada de fecha de inicio del servicio
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>RECLAMACION:</strong> Ante cualquier reclamaci&oacute;n del <strong>CLIENTE</strong> por
+                                    incumplimiento de servicios se hace obligatorio presentar como soporte copia del
+                                    Contrato de Arrendamiento
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>El CLIENTE</strong> podr&aacute; devolver el veh&iacute;culo en cualquiera de las oficinas de ventas de CUBACAR en todo el pa&iacute;s. Cuando la devoluci&oacute;n se realiza en otra oficina de venta distinta a la que le dio apertura al contrato de arrendamiento del auto, <strong>EL CLIENTE</strong> tendr&aacute; que abonar un suplemento de retorno o DROP OFF. Por favor vaya a <a href="#">este enlace</a> para que vea las tarifas de DROP OFF. Muchas gracias!
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="tab-pane fade show pt-2" id="nav-car-config" role="tabpanel"
+                            aria-labelledby="nav-car-config-tab">
+                            <table id="car-description" class="table">
+                               <thead>
+                                    <tr>
+                                        <th id="car-name">{{auto.getMarca}}</th>
+                                        <th id="incluye"><i class="fas fa-check text-success"></i></th>
+                                        <th id="no-incluye"><i class="fas fa-times text-danger"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        {% if auto.getABS %}
+                                        <th>1</th>
+                                        <td>ABS</td>
+                                        <td></td>
+                                        {%else%}
+                                        <th>1</th>
+                                        <td></td>
+                                        <td>ABS</td>
+                                        {% endif %} 
+                                    </tr>
+                                    <tr>
+                                        {% if auto.getBluethooth %}
+                                        <th>2</th>
+                                        <td>Bluethooth</td>
+                                        <td></td>
+                                        {%else%}
+                                        <th>2</th>
+                                        <td></td>
+                                        <td>Bluethooth</td>
+                                        {%endif%}
+                                    </tr>
+                                    <tr>
+                                        {%if auto.getWifi%}
+                                        <th>3</th>
+                                        <td>Wifi</td>
+                                        <td></td>
+                                        {%else%}
+                                        <th>3</th>
+                                        <td></td>
+                                        <td>Wifi</td>
+                                        {%endif%}
+                                    </tr>
+                                    <tr>
+                                        {% if auto.getPantalla %}
+                                        <th>4</th>
+                                        <td>Pantalla t&aacute;ctil</td>
+                                        <td></td>
+                                        {%else%}
+                                        <th>4</th>
+                                        <td></td>
+                                        <td>Pantalla t&aacute;ctil</td>
+                                       {%endif%} 
+                                    </tr>
+                                    <tr>
+                                        {%if auto.getReproductor%}
+                                        <th>5</th>
+                                        <td>Reproductor de m&uacute;sica</td>
+                                        <td></td>
+                                        {% else %}
+                                        <th>5</th>
+                                        <td></td>
+                                        <td>Reproductor de m&uacute;sica</td>
+                                        {%endif%}
+                                    </tr>
+                                    <tr>
+                                        {%if auto.getRepuesto %}
+                                        <th>6</th>
+                                        <td>Neum&aacute;tico de repuesto</td>
+                                        <td></td>
+                                        {%else%}
+                                        <th>6</th>
+                                        <td></td>
+                                        <td>Neum&aacute;tico de repuesto</td>
+                                        {%endif%}
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+
+        <!-- *********************************************************************************************************
+                                                CALENDARIO DE RESERVAS
+    **************************************************************************************************************-->
+        <div id="calendario" class="col-sm-12 col-md-6">
+            <h2 class="ml-1 text-center">Recogida & Entrega </h2>
+            <div class="validated bg-light p-2 m-2 shadow-sm border rounded float-md-right" id="calendario-reservas-auto">
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="form-row">
+                <div class="form-group col-sm-12 col-md-6">
+                    {{ form_label(form.fechaRecogida) }}
+                    {{ form_errors(form.fechaRecogida) }}
+                    {{ form_widget(form.fechaRecogida,{attr:{'class':'form-control mb-2','id':'check-in' } }) }}
+                    <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    {{ form_label(form.horaRecogida) }}
+                    {{ form_errors(form.horaRecogida) }}
+                    {{ form_widget(form.horaRecogida,{attr:{'class':'form-control mb-2','id':'hora-recogida','type':'time' } }) }}
+                    <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    {{ form_label(form.fechaEntrega) }}
+                    {{ form_errors(form.fechaEntrega) }}
+                    {{ form_widget(form.fechaEntrega,{attr:{'class':'form-control mb-2','id':'check-out' } }) }}
+                    <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 col-md-6">
+                    {{ form_label(form.horaEntrega) }}
+                    {{ form_errors(form.horaEntrega) }}
+                    {{ form_widget(form.horaEntrega,{attr:{'class':'form-control mb-2','id':'hora-entrega' } }) }}
+                    <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-group col-sm-6">
+                   {{ form_label(form.region,'Donde lo va a recoger') }}
+                   {{ form_errors(form.region) }}
+                   {{ form_widget(form.region,{attr:{'class':'form-control','id':'provincia-recogida'} }) }} 
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-gruop col-sm-6">
+                   {{ form_label(form.lugar,'Lugar de recogida') }}
+                   {{ form_errors(form.lugar) }}
+                   {{ form_widget(form.lugar,{attr:{'class':'form-control','id':'lugar-recogida'} }) }} 
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                
+                    <div class="form-gruop col-sm-12">
+                        <h3 class="text-muted text-center my-2 ml-2">Extras</h3>
+                    </div>
+                
+                <div class="form-gruop col-sm-6">
+                    {{ form_label(form.conductorExtra) }}
+                    {{ form_errors(form.conductorExtra) }}
+                    {{ form_widget(form.conductorExtra,{attr:{'class':'form-control','id':'silla-bebe','novalidate': 'novalidate'} }) }}
+                    <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-gruop col-sm-6">
+                    {{ form_label(form.sillaBebe) }}
+                    {{ form_errors(form.sillaBebe) }}
+                    {{ form_widget(form.sillaBebe,{attr:{'class':'form-control','id':'conductor-adicional','novalidate': 'novalidate'} }) }} 
+                    <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-gruop col-sm-12">
+                        <h3 class="text-muted text-center my-3 ml-2">Datos del conductor</h3>
+                        <small id="aviso-email" class="form-text text-danger mb-2">
+                            * Son los datos que necesitamos para poder procesar la reserva
+                        </small>
+                </div>
+                <div class="form-gruop col-sm-6">
+                   {{ form_label(form.nombre, 'Nombre *') }}
+                   {{ form_errors(form.nombre) }}
+                   {{ form_widget(form.nombre,{'attr':{'class':'form-control mb-2','id':'nombre-conductor'} }) }} 
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                
+                <div class="form-gruop col-sm-6">
+                   {{ form_label(form.apellido,'Apellido *') }}
+                   {{ form_errors(form.apellido) }}
+                   {{ form_widget(form.apellido,{attr:{'class':'form-control mb-2','id':'apellido-conductor'} }) }} 
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                
+                <div class="form-gruop col-sm-12">
+                   {{ form_label(form.email,'Email *') }}
+                   {{ form_errors(form.email) }}
+                   {{ form_widget(form.email,{attr:{'class':'form-control','id':'email-conductor'} }) }}
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                   <small id="aviso-email" class="form-text text-muted mb-2">
+                            Donde vas a recibir la confirmaci&oacute;n de la reserva y los datos
+                   </small>
+                </div>
+                
+                <div class="form-gruop col-sm-4">
+                   {{ form_label(form.aerolinea,'Aerolinea *') }}
+                   {{ form_errors(form.aerolinea) }}
+                   {{ form_widget(form.aerolinea,{attr:{'class':'form-control mb-2','id':'licencia-conductor'} }) }} 
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                
+                <div class="form-gruop col-sm-4">
+                   {{ form_label(form.identidad,'NIC / pasaporte *') }}
+                   {{ form_errors(form.identidad) }}
+                   {{ form_widget(form.identidad,{attr:{'class':'form-control mb-2','id':'id-conductor'} }) }}
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                
+                <div class="form-gruop col-sm-4">
+                   {{ form_label(form.vuelo,'Vuelo *') }}
+                   {{ form_errors(form.vuelo) }}
+                   {{ form_widget(form.vuelo,{attr:{'class':'form-control','id':'telefono-conductor'} }) }} 
+                   <div class="valid-feedback">
+                            Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                            Entre una fecha v&aacute;lida
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="apruebo" required>
+                            <label class="custom-control-label" for="apruebo">Confirmo que he le&iacute;do y estoy de acuerdo con la <a href="#">Pol&iacute;tica de Privacidad</a> y los <a href="#">T&eacute;rminos y condiciones</a> de CUBATREK</label>
+                            <div class="valid-feedback">
+                            Correcto!
+                            </div>
+                            <div class="invalid-tooltip">
+                                Debe estar de acuerdo para poder continuar
+                            </div>
+                        </div>
+                    <div class="g-recaptcha mt-2" data-sitekey="6LdupOIZAAAAAC3Uew6gwXrq1YfRXO82XC1zpGG7"></div>
+                </div>
+                   <div class="container mt-4">
+                        <button class="btn text-center mb-2" type="button" data-toggle="collapse"
+                            data-target="#precio-parcial-auto" aria-expanded="false"
+                            aria-controls="precio-parcial-auto">
+                            Elegir auto <i class="fas fa-check-circle"></i>
+                        </button>
+                        <div class="collapse container" id="precio-parcial-auto">
+                            <table id="suma-precio-auto" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Descripci&oacute;n</th>
+                                        <th>Precio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Precio base</td>
+                                        <td>{{auto.getPrecio+(20*auto.getPrecio/100)}} USD / d&iacute;a</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Seguro</td>
+                                        <td>Inclu&iacute;do</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dep&oacute;sito de garant&iacute;a</td>
+                                        <td>{{auto.getDeposito}} USD</td>
+                                    </tr>
+                                    <tr>
+                                        <th>SUBTOTAL:</th>
+                                        {% set subtotal = (auto.getPrecio+(20*auto.getPrecio/100)) + auto.getDeposito %}
+                                        <td> {{subtotal}} USD</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- TODO:
+                                1-Aqui debe redireccionar a la pagina de confirmar reserva del auto una vez que se envÃ­en los datos del formulario para mostrar el resumen de la reserva
+                            -->
+                            
+                            {{form_row(form.save,{attr:{'class':'btn','id':'submit-datos-auto'} })}}
+                       
+                            <small class="text-danger form-text">
+                                El precio final est&aacute; sujeto a cambios por temporada y cantidad de d&iacute;as
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- *********************************************************************************************************
+                                            SECCIÓN DEL FOOTER
+    **************************************************************************************************************-->
+    {%block pie%}
+
+     {{ parent()}}
+     
+     
+        {%endblock%} 
+
+{%endblock%}
+{% block javascripts %}
+    <!-- Añadiendo scrpts js -->
+    <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/js/all.min.js')}}"></script>
+    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets/js/validate-form.js')}}"></script>
+    {% endblock %}

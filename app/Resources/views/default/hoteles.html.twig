@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Listado de hoteles</h1>
+    <table>
+         <thead>
+             <tr role="row">
+                <th>Nombre</th>
+                <th>Cadena</th>
+                <th>Area</th>
+                <th>Categoria</th>
+                
+            </tr>
+         </thead>
+         <tbody>
+        {% if hoteles is defined %}
+        {%for hotel in hoteles%}
+            <tr role="row">
+                <td>{{hotel.getNombre}}             |</td>
+                <td>{{hotel.getCadena}} </td>
+                <td>{{hotel.getRegion}}</td>
+                <td>{{hotel.getCategoria}}Estrellas</td>
+                <td>
+                {%for habitacion in hotel.getTipoHab%}
+                   <p>{{habitacion.getTipo}}</p>
+                   <a href ="{{path('reservarH',{'id':habitacion.getId})}}">Reservar</a>
+                {%endfor%}
+                </td> 
+            </tr>
+        {%endfor%}
+        {%endif%}
+        </tbody>
+    </table>
+   
+{% endblock%}

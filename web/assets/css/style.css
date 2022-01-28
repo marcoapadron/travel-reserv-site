@@ -1,0 +1,741 @@
+/*----------------------------------------------------------------------------------------------------------------------------
+                        PALETA DE COLORES A UTILIZAR
+#001524
+#15616D
+#FFECD1
+#FF7D00
+#78290F
+------------------------------------------------------------------------------------------------------------------------------*/
+:root {
+    --bg-blue: #001524;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+hr.divider {
+    margin: 4em 0px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .4);
+}
+
+a#boton-subir.btn {
+    position: fixed;
+    bottom: 4px;
+    right: 4px;
+    background-color: transparent;
+    border-radius: 50%;
+    text-decoration: none;
+    border-color: white;
+    box-shadow: 0px 0px 1px inset rgba(0, 0, 0, .3);
+    border: none;
+    padding: 0;
+    text-align: center;
+    animation: 2s boton-subir infinite linear alternate;
+}
+
+a#boton-subir .fa-arrow-circle-up {
+    font-size: 1.5em;
+}
+
+ul.pagination a.page-link {
+    color: black;
+}
+
+/* .btn {
+    background-color: #001524;
+    color: #ff7b00c4;
+    text-decoration: none;
+    padding: 4px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, .4),
+        1px 1px 4px rgba(0, 0, 0, .5),
+        2px 2px 6px rgba(0, 0, 0, .6);
+} */
+
+/* .btn:hover {
+    color: #ff7d00;
+    background-color: #001524ee;
+} */
+
+span.descuento::after {
+    font: 800 25px Arial;
+    content: counter(count);
+    animation: counter 3s linear infinite alternate;
+    counter-reset: count 0;
+}
+
+ .btn-color{
+     background-color: #001524e0;
+     color: white;
+ }
+ .btn-color:hover{
+     background-color: #001524;
+     color: #ff7d00;
+ }
+
+ .badge-color{
+    background-color: #fafafa;
+    color: #001524;
+ }
+ .badge-color:hover{
+    background-color: #f1f1f1;
+    color: #001524;
+ }
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DE LA BARRA DE NAVEGACIÓN
+-------------------------------------------------------------------------------------------------------------------------*/
+#nav .navbar-toggler {
+    background-color: #ff7d00;
+    color: #ff7d00;
+}
+
+#nav ul .nav-link {
+    color: #001524;
+    font-size: 1.2em;
+}
+
+#nav ul .active,
+#nav .nav-link:hover {
+    background-color: #15616d57;
+    border-radius: 3px;
+    color: black;
+}
+
+#nav #registro-usuarios {
+    position: absolute;
+    bottom: 4px;
+    right: 50px;
+    margin-left: 10px;
+}
+#nav #registro-usuarios li{
+    margin-left: 5px;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DEL HEADER DE LA PAGINA INICIO
+-------------------------------------------------------------------------------------------------------------------------*/
+#main-header.hero-image {
+    width: 100%;
+    height: 320px;
+    background-image: url(../img/portada/portada_header_inicio.jpg);
+    background-size: 150%;
+    animation: main-header-movement 20s linear alternate infinite;
+    border-radius: 5px;
+    box-shadow:
+        0px 0px 3px rgba(0, 0, 0, .5),
+        1px 1px 5px rgba(0, 0, 0, .6),
+        -1px -1px 5px rgba(0, 0, 0, .6);
+    position: relative;
+}
+
+#main-header .main-header-title {
+    position: absolute;
+    bottom: 3px;
+    left: 5px;
+    font-size: 2.5em;
+    color: #001524;
+    filter: opacity(.8);
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DE LA SECCION NUESTROS SERVICIOS PAGINA PRINCIPAL
+-------------------------------------------------------------------------------------------------------------------------*/
+#nuestros-servicios {
+    margin: 4em 0px;
+    text-align: center;
+    padding: 2em 0;
+}
+
+#nuestros-servicios .title {
+    font-size: 3.5em;
+    margin-bottom: 1.5em;
+    color: black;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+
+}
+
+#nuestros-servicios h5.card-title {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    position: absolute;
+    top: 40%;
+    left: 36%;
+}
+
+#nuestros-servicios img.card-img {
+    width: 100%;
+}
+
+#nuestros-servicios a.card {
+    width: 100%;
+    border: none;
+    display: flex;
+}
+
+#nuestros-servicios div.servicio-hoteles:hover {
+    filter: opacity(.6);
+    transition: 1s ease-in-out 0.1s;
+    color: white;
+}
+
+#nuestros-servicios div.servicio-autos:hover {
+    filter: opacity(.6);
+    transition: 1s ease-in-out 0.1s;
+    color: white;
+}
+
+#nuestros-servicios h3.servicios-title {
+    font-size: 2em;
+    color: black;
+    position: absolute;
+    right: 20px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+}
+
+#nuestros-servicios a {
+    text-decoration: none;
+}
+
+#nuestros-servicios .card .fa-hotel,
+#nuestros-servicios .card .fa-car {
+    font-size: 100px;
+    color: #001524;
+}
+#nuestros-servicios .card:hover {
+    background-color: #d8d8d8;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DE LA SECCION HOTELES RECOMENDADOS
+-------------------------------------------------------------------------------------------------------------------------*/
+#hoteles-recomendados {
+    margin: 4em 0px;
+    text-align: center;
+    padding: 2em 0;
+}
+
+#hoteles-recomendados .title {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: #001524;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hoteles-recomendados .card {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow:
+        0px 0px 1px rgba(0, 0, 0, .3),
+        0px 0px 2px rgba(0, 0, 0, .4);
+}
+
+#hoteles-recomendados .card:hover {
+    box-shadow:
+        0px 0px 1px inset rgba(0, 0, 0, .3),
+        0px 0px 2px inset rgba(0, 0, 0, .4),
+        1px 1px 3px inset rgba(0, 0, 0, .5),
+        -1px -1px 4px inset rgba(0, 0, 0, .6);
+    background-color: #d8d8d8;
+}
+
+.fa-star {
+    color: #f0c433;
+}
+
+#hoteles-recomendados .list-group-item {
+    text-align: left;
+}
+
+.card a.btn {
+    background-color: #001524;
+    color: #ff7b00c4;
+    text-decoration: none;
+    box-shadow:
+        0px 0px 2px rgba(0, 0, 0, .4),
+        1px 1px 4px rgba(0, 0, 0, .5),
+        2px 2px 6px rgba(0, 0, 0, .6);
+    float: left;
+}
+
+.card a.btn:hover {
+    color: #ff7d00;
+    background-color: #001524ee;
+}
+
+#hoteles-recomendados .card .precio {
+    float: right;
+    color: #ff7d00;
+    background-color: #001524;
+    border-radius: 5px 5px 5px 5px;
+    padding: 7px 3px;
+}
+
+#hoteles-recomendados .card a.btn-block {
+    color: #ff7d00;
+    font-size: 1.4rem;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        Estilos de ventana
+-------------------------------------------------------------------------------------------------------------------------*/
+div.parallax {
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 100%;
+    height: 350px;
+    overflow: auto;
+}
+
+div.ventana-playa {
+    background: url(../img/ventanas/playa.jpg) 0 / cover fixed;
+    box-shadow:
+        0px 0px 2px inset rgba(0, 0, 0, .3),
+        0px 0px 3px inset rgba(0, 0, 0, .5),
+        0px 0px 4px inset rgba(0, 0, 0, .6);
+    margin: 2em 0px;
+}
+
+div.ventana-ciudad {
+    display: flex;
+    background: url(../img/ventanas/ciudad.jpg) 0 / cover fixed;
+    box-shadow:
+        0px 0px 2px inset rgba(0, 0, 0, .3),
+        0px 0px 3px inset rgba(0, 0, 0, .5),
+        0px 0px 4px inset rgba(0, 0, 0, .6);
+    margin: 2em 0px;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DE LA SECCION AUTOS PARA EXPLORAR
+-------------------------------------------------------------------------------------------------------------------------*/
+#autos-recomendados {
+    margin: 4em 0;
+    padding: 2em 0;
+}
+
+#autos-recomendados .title {
+    font-size: 3em;
+    margin-bottom: 1.5em;
+    color: #001524;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+#autos-remonedados div.media {
+    width: 100%;
+    margin-bottom: 1.5em;
+}
+
+#autos-recomendados a {
+    text-decoration: none;
+    color: black;
+}
+
+#autos-recomendados span.badge-color {
+    background-color: #001524;
+    color: #ff7d00;
+    /* border-radius: 5px 5px 5px 5px;
+    padding: 1px;
+    font-size: 0.8em; */
+}
+
+#autos-recomendados li #precio {
+    float: right;
+}
+
+#autos-recomendados li.media:hover{
+    background-color: #d8d8d8;
+}
+
+#autos-recomendados a.btn-block {
+    font-size: 1.2rem;
+    color: green;
+}
+#autos-recomendados a.btn-block:hover {
+    font-size: 1.2rem;
+    color: white;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DE LA SECCIÓN DE SUBSCRIBIRSE
+-------------------------------------------------------------------------------------------------------------------------*/
+#subscribirse {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 2em auto;
+    padding: 2em;
+}
+
+section#subscribirse h2.title {
+    font-size: 2.5em;
+    color: #001524;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+}
+
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DEL FORMULARIO DE CONTACTO
+-------------------------------------------------------------------------------------------------------------------------*/
+#contacto .title {
+    font-size: 3em;
+    margin-bottom: 1.5em;
+    color: #001524;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DEL FOOTER
+-------------------------------------------------------------------------------------------------------------------------*/
+#footer .fa-facebook-f,
+.fa-instagram,
+.fa-twitter {
+    font-size: 1.4em;
+}
+
+#footer .fa-facebook-f {
+    color: #3b5958;
+}
+
+#footer .fa-instagram {
+    color: #681464;
+}
+
+#footer .fa-twitter {
+    color: #55acee;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ANIMACIONES CSS
+-------------------------------------------------------------------------------------------------------------------------*/
+@keyframes main-header-movement {
+    from {
+        background-position: bottom left;
+    }
+
+    to {
+        background-position: top right;
+    }
+}
+
+@keyframes boton-subir {
+    0% {
+        transform: translateY(2px);
+    }
+
+    25% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+
+    75% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(2px);
+    }
+}
+
+@keyframes counter {
+    0% {
+        counter-increment: count 0;
+    }
+
+    5% {
+        counter-increment: count 1;
+    }
+
+    10% {
+        counter-increment: count 2;
+    }
+
+    15% {
+        counter-increment: count 3;
+    }
+
+    20% {
+        counter-increment: count 4;
+    }
+
+    25% {
+        counter-increment: count 5;
+    }
+
+    30% {
+        counter-increment: count 6;
+    }
+
+    35% {
+        counter-increment: count 7;
+    }
+
+    40% {
+        counter-increment: count 8;
+    }
+
+    45% {
+        counter-increment: count 9;
+    }
+
+    50% {
+        counter-increment: count 10;
+    }
+
+    55% {
+        counter-increment: count 11;
+    }
+
+    60% {
+        counter-increment: count 12;
+    }
+
+    65% {
+        counter-increment: count 13;
+    }
+
+    70% {
+        counter-increment: count 14;
+    }
+
+    75% {
+        counter-increment: count 15;
+    }
+
+    80% {
+        counter-increment: count 16;
+    }
+
+    85% {
+        counter-increment: count 17;
+    }
+
+    90% {
+        counter-increment: count 18;
+    }
+
+    95% {
+        counter-increment: count 19;
+    }
+
+    100% {
+        counter-increment: count 20;
+    }
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                ****************** ESTILOS DE LA PAGINA DE HOTELES ************************
+-------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------------
+                        ESTILOS DEL HEADER DE LA PAGINA HOTELES
+-------------------------------------------------------------------------------------------------------------------------*/
+#hoteles-header .carousel-item {
+    width: 100%;
+    height: 300px;
+}
+
+#destinos-hoteles .title {
+    font-size: 3em;
+    margin-bottom: 1.5em;
+    color: #001524;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, .4);
+    text-align: center;
+}
+
+#destinos-hoteles a {
+    text-decoration: none;
+}
+
+#destinos-hoteles .card {
+    width: 300px;
+    margin: 2em auto;
+    box-shadow:
+        0px 0px 1px rgba(0, 0, 0, .8),
+        0px 0px 3px rgba(0, 0, 0, .6),
+        0px 0px 5px rgba(0, 0, 0, .4);
+}
+
+#destinos-hoteles div.card-img-overlay {
+    display: flex;
+}
+
+#destinos-hoteles h5.card-title {
+    font-size: 1.5em;
+    align-items: center;
+    justify-content: center;
+    margin: 2em auto;
+    text-shadow:
+        0px 0px 2px rgba(0, 0, 0, .4),
+        0px 0px 3px rgba(0, 0, 0, .5),
+        0px 0px 4px rgba(0, 0, 0, .6);
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                ****************** ESTILOS DE LISTA DE HOTELES ************************
+-------------------------------------------------------------------------------------------------------------------------*/
+#lista-hoteles .hotel-card{
+    max-width: 100%;
+    background-color: #fafafa;
+    border-radius: 8px;
+
+}
+#lista-hoteles .hotel-card:hover{
+    background-color: #f1f1f1;
+
+}
+
+#lista-hoteles #hotel-name{
+    font-size: 1.8em;
+    font-weight: bolder;
+} 
+#lista-hoteles #price-box{
+    float: right;
+    margin: 4px;
+    text-align: right;
+}
+#lista-hoteles #hotel-precio{
+    font-size: 1.3em;
+    padding-right: 0;
+}
+
+#lista-hoteles .card img{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px 2px 2px 8px;
+}
+
+#lista-hoteles #hotel-ubicacion{
+    font-size: 1.2em;
+    margin-top: 45px;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                ****************** ESTILOS DE LA PAGINA DE HOTEL INDIVIDUAL ************************
+-------------------------------------------------------------------------------------------------------------------------*/
+section#hotel div#hotel-name .carousel-item {
+    height: 200px;
+}
+
+/* *********************************************************************************************************
+                                                INFORMACION DEL HOTEL
+    ************************************************************************************************************** */
+#info-hotel a.active {
+    background-color: #ff7d00;
+}
+
+#info-hotel a.nav-link {
+    box-shadow:
+        0px 0px 1px rgba(0, 0, 0, .4),
+        0px 0px 3px rgba(0, 0, 0, .3),
+        0px 0px 4px rgba(0, 0, 0, .1);
+    margin: 0px 1px;
+}
+
+#info-hotel a.active,
+.nav-link:hover {
+    background-color: #ff7d00;
+}
+
+#info-hotel .fa-hotel,
+.fa-info-circle,
+.fa-bed,
+.fa-glass-martini-alt,
+.fa-concierge-bell,
+.fa-map-marker-alt {
+    color: var(--bg-blue);
+}
+
+div#ubicacion-hotel {
+    width: 100%;
+    min-height: 300px;
+}
+
+#ubicacion-hotel {
+    margin-top: 2px;
+    max-width: 400px;
+    min-height: 200px;
+    border: 1px solid rgb(199, 199, 199);
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------
+                ****************** ESTILOS DE LA PAGINA DE AUTOS DE RENTA ************************
+-------------------------------------------------------------------------------------------------------------------------*/
+/* *********************************************************************************************************
+                                                ESTILOS DEL HEADER
+    ************************************************************************************************************** */
+#autos-header .carousel-item {
+    min-height: 350px;
+    max-height: 500px;
+}
+
+/* *********************************************************************************************************
+                                                ESTILOS DE LA BARRA DE PROGRESO DE LA RESERVA
+************************************************************************************************************** */
+#progreso-reserva-auto span {
+    font-size: 2rem;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-weight: normal;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+#autos-disponibles div#car-type {
+    position: relative;
+}
+
+#autos-disponibles div#car-type li.card:hover {
+    background-color: #fcfcfc;
+    cursor: pointer;
+}
+
+#autos-disponibles div#car-type #car-img {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+}
+
+#autos-disponibles div#car-type #categoria-auto {
+    position: absolute;
+    right: 20px;
+    top: 110px;
+}
+
+/* *********************************************************************************************************
+                                                ESTILOS DE PAGINAS DE CONTACTOS
+************************************************************************************************************** */
+
+i.fa-facebook-f, i.fa-instagram, i.fa-twitter, i.fa-youtube{
+    font-size: 40px;
+}
+i.fa-youtube{
+    color: rgb(219, 12, 12);
+}
+i.fa-instagram{
+    color: #D6249F;
+
+}
+
+
+.enmarcado{
+    width: 80px;
+    height: 80px;
+}

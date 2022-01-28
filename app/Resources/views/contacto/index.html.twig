@@ -1,0 +1,153 @@
+{% extends 'index.html.twig' %}
+    {% block body %}
+    <!-- *********************************************************************************************************
+                                                Barra de navegación
+    **************************************************************************************************************-->
+ {%block navegacion%}
+
+{{ parent()}}
+     
+     
+ {%endblock%} 
+    <!-- *********************************************************************************************************
+                                                Seciión de contacto
+    **************************************************************************************************************-->
+    <section id="contacto">
+        <h2 class="title">Cont&aacute;ctenos</h2>
+        <p class="text-center container mb-5">
+            Muchas gracias por contactarse con nosotros. Puede escribirnos por correo electr&oacute;nico llenando el formulario a continuaci&oacute;n o por nuestras redes sociales que aparecen debajo del formulario de contacto. En cualquier caso le responderemos en 24 horas como m&aacute;ximo. 
+        </p>
+        <div id="contacto" class="container bg-light p-5 animate__animated animate__fadeInUpBig shadow">
+        <p class="text-danger small">Todos los campos con * son obligatorios</p>
+        <form id="contact-form" action="/procesado" method="POST" class="validated" novalidate>
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="name">Nombre <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control shadow" id="name" name="nombre" placeholder="Su nombre"
+                        required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, introduce un nombre v&aacute;lido.
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="lastname">Apellido <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control shadow" id="lastname" name="apellido"
+                        placeholder="Su apellido" required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese un apellido v&aacute;lido
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="email">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control shadow" id="email" name="email"
+                        placeholder="usuario@example.com" required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese un email v&aacute;lido
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="confirmEmail">Confirmar email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control shadow" id="confirmEmail" 
+                        placeholder="usuario@example.com" required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, verifique que su email sea v&aacute;lido y que coincida con el que insertado
+                        anteriormente.
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="asunto">Asunto</label>
+                    <input type="text" name="asunto" id="asunto" class="form-control shadow" placeholder="Asunto">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label for="mensaje">Mensaje <span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control shadow" rows="8" id="mensaje" name="mensaje"
+                        required></textarea>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, aseg&uacute;rese de haber escrito un mensaje.
+                    </div>
+                </div>
+            </div>
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="checkbox" required>
+                <label class="custom-control-label" for="checkbox">
+                    Doy mi consentimiento para que esta web almacene la informaci&oacute;n que env&iacute;o para que
+                    puedan responder a mi petici&oacute;n. Por tanto acepto y estoy de acuerdo con la <a href="#">
+                        Pol&iacute;tica de privacidad</a> y los <a href="#">T&eacute;rminos y Condiciones</a> de
+                    WayTravelTrek.
+                </label>
+                <div class="valid-feedback">
+                    Correcto!
+                </div>
+                <div class="invalid-tooltip">
+                    Debes estar de acuerdo para poder enviar el mensaje.
+                </div>
+            </div>
+            <div class="g-recaptcha mt-2" data-sitekey=""></div>
+            <div class="row text-right d-block">
+                <button id="recaptcha" type="submit" name="submit" class="btn btn-color">Enviar <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+    </section>
+
+
+    <div class="container mt-5">
+        <h3 class="text-center">S&iacute;ganos en nuestras redes sociales</h3>
+        <p>
+            No olvides seguirnos en nuestras redes y compartir todo nuestro contenido. Estaremos publicando ofertas y promociones. Muchas gracias por elegir WayTravelTrek para planear su viaje.
+        </p>
+        <div class="row row-cols-4 mb-3 p-4">
+            <div class="col-sm-3 d-flex justify-content-center align-items-center">
+                <div class="shadow enmarcado rounded-circle d-flex justify-content-center align-items-center">
+                    <a href="#" target="__blank"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-3 d-flex justify-content-center align-items-center">
+                <div class="shadow enmarcado rounded-circle d-flex justify-content-center align-items-center">
+                    <a href="https://waytraveltrek.com#subscribirse" target="__blank"><i class="fab fa-facebook-messenger"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-3 d-flex justify-content-center align-items-center">
+                <div class="shadow enmarcado rounded-circle d-flex justify-content-center align-items-center">
+                    <a href="#" target="__blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-3 d-flex justify-content-center align-items-center">
+                <div class="shadow enmarcado rounded-circle d-flex justify-content-center align-items-center">
+                    <a href="#" target="__blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}
+    
+{% block javascripts %}
+    <!-- Añadiendo scripts js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <script src="../assets/js/app.js"></script>
+   {% endblock %}

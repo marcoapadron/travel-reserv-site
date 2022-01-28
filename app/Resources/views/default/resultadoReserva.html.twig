@@ -1,0 +1,11 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Deer {{reserva.getNombre}}</h1>
+    <p> You has made a reservation for {{habitacion.getTipo}} room for {{reserva.getPax}} people in 
+        {{hotel.getNombre}} hotel located in {{hotel.getRegion}}betwin the dates
+        {{reserva.getFechaEntrada|date("d-M-y")}} and {{reserva.getFechaSalida|date("d-M-y")}} whait confirmation
+        at your emaill {{reserva.getCorreo}}.
+    </p>
+   
+{% endblock%}

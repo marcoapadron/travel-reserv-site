@@ -1,0 +1,255 @@
+{% extends 'index.html.twig' %}
+    {% block body %}
+    <!-- *********************************************************************************************************
+                                                Barra de navegación
+    **************************************************************************************************************-->
+ {%block navegacion%}
+
+{{ parent()}}
+     
+     
+ {%endblock%} 
+    <!-- *********************************************************************************************************
+                                                HEADER DE LA PAGINA HOTELES
+    **************************************************************************************************************-->
+    <header id="hoteles-header" class="carousel slide carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#hoteles-header" data-slide-to="0" class="active"></li>
+            <li data-target="#hoteles-header" data-slide-to="1"></li>
+            <li data-target="#hoteles-header" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../assets/img/portada/portada_header_inicio.jpg" class="d-block img-fluid" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/img/portada/p2.jpg" class="d-block w-100" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/img/portada/p3.jpg" class="d-block w-100" alt="">
+            </div>
+        </div>
+    </header>
+
+    <div class="text-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent w-100 mt-3">
+                <li class="breadcrumb-item"><a class="text-decoration-none" href="{{path('homepage')}}">Inicio</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Hoteles</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- *********************************************************************************************************
+                                                DESTINOS DE HOTELES
+    **************************************************************************************************************-->
+    <section id="destinos-hoteles" class="container my-5">
+        <h2 class="title">Elige tu destino</h2>
+        <div class="row row-cols-sm-1 row-cols-md-3">
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'La Habana'} )}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Habana.jpg" class="card-img" alt="La Habana" id="destino-habana-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">La Habana</h5>
+                        </div>
+                        <span id="cantidad-hoteles-habana" class="badge badge-dark">64 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Playas del este'} )}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Playas_del_Este.jpg" class="card-img" alt="Playas del este de La Habana" id="destino-playas-del-este-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Playas del este de La Habana</h5>
+                        </div>
+                        <span id="cantidad-hoteles-playas-del-este" class="badge badge-dark">6 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Varadero'} )}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Varadero.jpg" class="card-img" alt="Varadero" id="destino-varadero-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Varadero</h5>
+                        </div>
+                        <span id="cantidad-hoteles-varadero" class="badge badge-dark">49 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Cayo Coco'})}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="Cayo Coco" id="destino-cayo-coco-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Cayo Coco</h5>
+                        </div>
+                        <span id="cantidad-hoteles-cayo-coco" class="badge badge-dark">10 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Cayo Santa Maria'} )}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/cayo_santa_maria_2.jpg" class="card-img" alt="Cayo Santa Mar&iacute;a" id="destino-cayo-santa-maria-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Cayo Santa Mar&iacute;a</h5>
+                        </div>
+                        <span id="cantidad-hoteles-cayo-santa-maria" class="badge badge-dark">20 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Cayo Guillermo'})}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Guillermo_2.jpg" class="card-img" alt="Cayo Guillermo" id="destino-cayo-guillermo-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Cayo Guillermo</h5>
+                        </div>
+                        <span id="cantidad-hoteles-cayo-guillermo" class="badge badge-dark">9 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Cayo Cruz'})}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Cruz_2.jpg" class="card-img" alt="Cayo Cruz" id="destino-cayo-cruz-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Cayo Cruz</h5>
+                        </div>
+                        <span id="cantidad-hoteles-cayo-cruz" class="badge badge-dark">3 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Cayo Largo'})}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Largo_3.jpg" class="card-img" alt="Cayo Largo" id="destino-cayo-largo-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Cayo Largo</h5>
+                        </div>
+                        <span id="cantidad-hoteles-cayo-largo" class="badge badge-dark">6 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="#">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="Pinar del R&iacute;o" id="destino-pinar-del-rio-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Pinar del R&iacute;o</h5>
+                        </div>
+                        <span id="cantidad-hoteles-pinar-del-rio" class="badge badge-dark">11 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="#">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="Cienfuegos" id="destino-cienfuegos-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Cienfuegos</h5>
+                        </div>
+                        <span id="cantidad-hoteles-cienfuegos" class="badge badge-dark">6 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="#">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="Villa Clara" id="destino-villa-clara-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Villa Clara</h5>
+                        </div>
+                        <span id="cantidad-hoteles-villa-clara" class="badge badge-dark">11 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div> -->
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="{{path('hotel-region',{'region':'Trinidad'})}}">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="Trinidad" id="destino-trinidad-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Trinidad</h5>
+                        </div>
+                        <span id="cantidad-hoteles-trinidad" class="badge badge-dark">12 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="#">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="Camaguey & Santa Luc&iacute;a" id="destino-camaguey-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Camaguey & Santa Luc&iacute;a</h5>
+                        </div>
+                        <span id="cantidad-hoteles-camaguey" class="badge badge-dark">13 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="#">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="...">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Santi Sp&iacute;ritus</h5>
+                        </div>
+                        <span class="badge badge-dark">5 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <a href="#">
+                    <div class="card bg-dark text-white">
+                        <img src="../assets/img/destinos/Cayo_Coco.jpg" class="card-img" alt="Ciego de &Aacute;vila" id="destino-ciego-img">
+                        <div class="card-img-overlay">
+                            <h5 class="card-title">Ciego de &Aacute;vila</h5>
+                        </div>
+                        <span id="cantidad-hoteles-ciego" class="badge badge-dark">3 hoteles disponibles</span>
+                    </div>
+                </a>
+            </div> -->
+        </div>
+    </section>
+
+
+    <!-- *********************************************************************************************************
+                                                SECCIÓN DE AUTOS RECOMENDADOS
+    **************************************************************************************************************-->
+    
+    {%block cars%}
+
+        {{ parent()}}
+         
+    {%endblock%} 
+
+    <!-- *********************************************************************************************************
+                                            SECCIÓN DEL FOOTER
+    **************************************************************************************************************-->
+    {%block pie%}
+
+        {{ parent()}}
+         
+    {%endblock%} 
+
+    <a id="boton-subir" href="#nav" class="btn"><i class="fas fa-arrow-circle-up"></i></a>
+
+
+{% endblock %}
+   

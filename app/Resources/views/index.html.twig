@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+   {% block stylesheets %}
+    <title>WayTravelTrek</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="">
+
+    <!-- Añadiendo Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <!-- Añadiendo normalize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Añadiendo animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+    <!-- Añadiendo mis setilos css -->
+    <link rel="stylesheet" type="text/css" href="{{asset("assets/css/style.css")}}">
+
+    <link rel="stylesheet" href="{{asset("assets/css/responsive.css")}}">
+   
+    <script src="https://kit.fontawesome.com/484a0c911a.js" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+    <script src="{{asset("assets/js/analytics.js")}}"></script>
+{% endblock %}
+</head>
+
+<body>
+{% block body %}
+    <!-- *********************************************************************************************************
+                                                Barra de navegación
+    **************************************************************************************************************-->  
+    {%block navegacion%}
+    <nav id="nav" class="navbar navbar-expand-lg navbar-light navbar-color">
+        <div class="container">
+
+            <a class="navbar-brand" href="{{path('homepage')}}"><img src="{{asset('assets/img/logo/Logo WayTravelTrek.png')}}" alt=""></a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsableNavbar"
+                aria-controls="collapsableNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsableNavbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item animate__animated animate__bounceInDown active">
+                        <a class="nav-link" href="{{path('homepage')}}"><i class="fas fa-home"></i> Inicio<span
+                                class="sr-only"></span></a>
+                    </li>
+
+                    <li class="nav-item animate__animated animate__bounceInDown">
+                        <a class="nav-link" href="{{path('hoteles')}}"><i class="fas fa-hotel"></i> Hoteles</a>
+                    </li>
+
+                    <li class="nav-item animate__animated animate__bounceInDown">
+                        <a class="nav-link" href="{{path('auto-lista')}}"><i class="fas fa-car"></i> Autos</a>
+                    </li>
+                    <li class="nav-item animate__animated animate__bounceInDown">
+                        <a class="nav-link" href="{{path('contacto')}}">Contacto <i
+                                class="fas fa-envelope-open-text"></i></a>
+                    </li>
+                </ul>
+                <ul id="registro-usuarios" class="navbar-nav" hidden>
+                    <li class="nav-item animate_animated animate_bounceInDown">
+                        <form action="#" method="post">
+                            <div class="dropdown">
+                                <a class="btn dropdown-toggle" href="#" role="button" id="currencyMenu"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Currency
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="currencyMenu">
+                                    <button type="submit" class="dropdown-item active" href="#">USD</button>
+                                    <button type="submit" class="dropdown-item" href="#">EUR</button>
+                                    <button type="submit" class="dropdown-item" href="#">CAD</button>
+                                    <button type="submit" class="dropdown-item" href="#">COP</button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                    <li class="nav-item animate_animated animate_bounceInDown">
+                        <a href="accounts/register/index.html" class="nav-link btn btn-sm">Crear cuenta</a>
+                    </li>
+                    <li class="nav-item animate_animated animate_bounceInDown">
+                        <a href="accounts/login/index.html" class="nav-link btn btn-sm">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+   {%endblock%}
+
+    <!-- *********************************************************************************************************
+                                                Header de la pagina de inicio
+    **************************************************************************************************************-->
+    <header id="main-header" class="hero-image">
+        <h1 class="main-header-title d-none">WayTravelTrek</h1>
+    </header>
+
+
+    <!-- *********************************************************************************************************
+                                                SECCIÓN DE NUESTROS SERVICIOS (PRIMERA SECCIÓN)
+    **************************************************************************************************************-->
+    <section id="nuestros-servicios">
+        <h2 class="title animate__animated animate__backInDown">Nuestros servicios</h2>
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col mb-4">
+                    <a href="{{path('hoteles')}}" class="text-reset">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <i class="fas fa-hotel"></i>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <h4>Hoteles</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col mb-4">
+                    <a href="{{path('auto-lista')}}" class="text-reset">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="card-footer bg-transparent">
+                                <h4>Autos de renta</h4>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- *********************************************************************************************************
+                                                SECCIÓN DE HOTELES RECOMENDADOS (PRIMERA SECCIÓN)
+    **************************************************************************************************************-->
+    <section id="hoteles-recomendados">
+        <h2 class="title animate__animated animate__backInDown">HOTELES RECOMENDADOS</h2>
+        <div class="container animate__animated animate__slideInLeft">
+            <div class="row row-cols-sm-1  row-cols-lg-3">
+                {%for hotel in hoteles %} 
+               {% if  loop.index <= 6 %}
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            {{hotel.getNombre}}
+                        </div>
+                        {% set url = " " %}
+                        {% for foto in hotel.getFotos %}
+                            {% if  loop.index ==1 %}
+                            {% set url = foto.getUrl%}
+                            {% endif %}
+                         {%endfor%}
+                        <a href="{{path('hotel-reserva',{'id':hotel.getid})}}"><img src="{{asset(url)}}" alt="..." class="card-img-top"></a>
+                                
+                    {% set capacidad = 0 %}
+                    {% set precio =0 %}
+                    {%for hab in hotel.getTipoHab %}
+                        {% set capacidad = capacidad + hab.getDisponibilidad%}
+                    {%endfor%}
+                    {% for tem in hotel.getTemporadas %}       
+                        {% if  loop.index ==1 %}
+                        {% set precio = tem.getDoble +(3*tem.getDoble/100) %}
+                        {% endif %}
+                    {%endfor%}
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                {%for i in 1..hotel.getCategoria%}
+                                    <i class="fas fa-star"></i>
+                                {%endfor%}
+                            </h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><i class="fas fa-map-marked"></i>{{hotel.getRegion}}</li>
+                                <li class="list-group-item"><i class="fas fa-bed"></i> {{capacidad}} habitaciones </li>
+                                <li class="list-group-item"><i class="fas fa-wifi"></i> Wifi inclu&iacute;do</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a role="button" href="{{path('hotel-reserva',{'id':hotel.getid})}}" class="btn">Ver hotel</a>
+                            <span class="precio">Desde USD ${{precio}}</span>
+                        </div>
+                    </div>
+                </div>
+                  {%endif%}
+               {% endfor %}
+            </div>
+            <a href="{{path('hoteles')}}" class="btn btn-outline-info btn-block">Ver hoteles</a>
+        </div>
+    </section>
+
+    <!-- *********************************************************************************************************
+                                                VENTANA CON VISTA AL MAR
+    **************************************************************************************************************-->
+    <div class="ventana-playa parallax my-4">
+
+    </div>
+
+    <!-- *********************************************************************************************************
+                                                SECCIÓN DE AUTOS RECOMENDADOS
+    **************************************************************************************************************-->
+    {%block cars%}
+    <section id="autos-recomendados">
+        <h2 class="title animate__animated animate__backInDown">Autos para rentar</h2>
+        <div class="container animate__animated animate__slideInRight">
+            <div class="row row-cols-sm-1 row-cols-lg-3 container-fluid">
+                <div id="auto-economico" class="mb-2">
+                    <h2 class="h4">Econ&oacute;mico</h2>
+                    <ul class="list-unstyled">
+                        
+                         {% for auto in economicos %}
+                            {%if loop.index <=3%}
+                        <a href="{{path('auto-reserva',{'id':auto.getId})}}" class="text-decoration-none text-reset">
+                            <li class="media mr-md-2 shadow p-2">
+                         {% set url = " " %}
+                        {% for foto in auto.getFotos %}
+                            {% if  loop.index == 1 %}
+                            {% set url = foto.getUrl%}
+                            {% endif %}
+                         {%endfor%}
+                               <img src="{{asset(url)}}" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">{{auto.getMarca}}</h5>
+                                    <span class="badge badge-light">{{auto.getCategoria}}</span>
+                                    <span class="badge badge-light">{{auto.getTransmision}}</span>
+                                    <span id="precio" class="badge badge-success">desde {{auto.getPrecio+(20*auto.getPrecio/100)}} USD</span>
+                                </div>
+                            </li>
+                        </a>
+                       {%endif%}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div id="auto-medio-alto" class="mb-2">
+                    <h2 class="h4">Medio</h2>
+                    <ul class="list-unstyled">
+                        {% for auto in medios %}
+                            {%if loop.index <=3%}
+                        <a href="{{path('auto-reserva',{'id':auto.getId})}}" class="text-decoration-none text-reset">
+                            <li class="media mr-md-2 shadow p-2">
+                         {% set url = " " %}
+                        {% for foto in auto.getFotos %}
+                            {% if  loop.index == 1 %}
+                            {% set url = foto.getUrl%}
+                            {% endif %}
+                         {%endfor%}
+                                <img src="{{asset(url)}}" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">{{auto.getMarca}}</h5>
+                                    <span class="badge badge-light">{{auto.getCategoria}}</span>
+                                    <span class="badge badge-light">{{auto.getTransmision}}</span>
+                                    <span id="precio" class="badge badge-success">desde {{auto.getPrecio+(20*auto.getPrecio/100)}} USD</span>
+                                </div>
+                            </li>
+                        </a>
+                       {%endif%}
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div id="auto-lujo" class="mb-2">
+                    <h2 class="h4">SUV</h2>
+                    <ul class="list-unstyled">
+
+                         {% for auto in lujos %}
+                            {%if loop.index <=3%}
+                        <a href="{{path('auto-reserva',{'id':auto.getId})}}" class="text-decoration-none text-reset">
+                            <li class="media mr-md-2 shadow p-2">
+                         {% set url = " " %}
+                        {% for foto in auto.getFotos %}
+                            {% if  loop.index == 1 %}
+                            {% set url = foto.getUrl%}
+                            {% endif %}
+                         {%endfor%}
+                                <img src="{{asset(url)}}" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0 mb-1">{{auto.getMarca}}</h5>
+                                    <span class="badge badge-light">{{auto.getCategoria}}</span>
+                                    <span class="badge badge-light">{{auto.getTransmision}}</span>
+                                    <span id="precio" class="badge badge-success">desde {{auto.getPrecio+(20*auto.getPrecio/100)}} USD</span>
+                                </div>
+                            </li>
+                        </a>
+                         {%endif%}
+                        {% endfor %}
+                    
+                    </ul>
+                </div>
+            </div>
+            <a href="{{path('auto-lista')}}" class="btn btn-outline-success btn-block">Ver autos</a>
+        </div>
+    </section>
+  {%endblock%}
+    <!-- *********************************************************************************************************
+                                                VENTANA CIUDAD
+    **************************************************************************************************************-->
+    <div class="ventana-ciudad parallax">
+        <!-- *********************************************************************************************************
+                                            SECCIÓN DE SUBSCRIPCIÓN 
+    **************************************************************************************************************-->
+        <section id="subscribirse" class="container bg-light animate__animated animate__fadeInDownBig">
+            <h2 class="title">Subscribirme</h2>
+            <p class="small">Subscr&iacute;bete para que recibas todas nuestras ofertas y recibe cupones
+                con hasta<span class="badge badge-light"><span class="descuento"></span></span> % de descuento</p>
+            <form id="promo-form" class="validated container-fluid form-inline" novalidate>
+                <div class="container-fluid">
+                    <label class="sr-only" for="name">Nombre</label>
+                    <input type="text" class="form-control mb-1 mr-sm-2" name="name" id="name" placeholder="Su nombre"
+                        required>
+
+                    <label for="email" class="sr-only">Correo</label>
+                    <input type="email" id="email" class="form-control mb-1 mr-sm-2" name="email"
+                        placeholder="Su correo" required>
+                    <button type="submit" class="btn btn-color mb-2">Subscribirme <i
+                            class="fas fa-envelope-open"></i></button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+
+    <!-- *********************************************************************************************************
+                                            FORMULARIO DE CONTACTO 
+    **************************************************************************************************************-->
+    <div id="contacto" class="container bg-light p-5 animate__animated animate__fadeInUpBig">
+        <h2 class="title">Cont&aacute;ctenos</h2>
+        <p class="text-danger small">Todos los campos con * son obligatorios</p>
+        <form id="contact-form" action="captcha.php" method="POST" class="validated" novalidate>
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="name">Nombre <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control shadow" id="name" name="nombre" placeholder="Su nombre"
+                        required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, introduce un nombre v&aacute;lido.
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="lastname">Apellido <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control shadow" id="lastname" name="apellido"
+                        placeholder="Su apellido" required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese un apellido v&aacute;lido
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="email">Email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control shadow" id="email" name="email"
+                        placeholder="usuario@example.com" required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, ingrese un email v&aacute;lido
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="confirmEmail">Confirmar email <span class="text-danger">*</span></label>
+                    <input type="email" class="form-control shadow" id="confirmEmail" name="email"
+                        placeholder="usuario@example.com" required>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, verifique que su email sea v&aacute;lido y que coincida con el que insertado
+                        anteriormente.
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-12">
+                    <label for="mensaje">Mensaje <span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control shadow" rows="8" id="mensaje" name="mensaje"
+                        required></textarea>
+                    <div class="valid-feedback">
+                        Correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                        Por favor, aseg&uacute;rese de haber escrito un mensaje.
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="checkbox" required>
+                <label class="custom-control-label" for="checkbox">
+                    Doy mi consentimiento para que esta web almacene la informaci&oacute;n que env&iacute;o para que
+                    puedan responder a mi petici&oacute;n. Por tanto acepto y estoy de acuerdo con la <a href="#">
+                        Pol&iacute;tica de privacidad</a> y los <a href="#">T&eacute;rminos y Condiciones</a> de
+                    WayTravelTrek.
+                </label>
+                <div class="valid-feedback">
+                    Correcto!
+                </div>
+                <div class="invalid-tooltip">
+                    Debes estar de acuerdo para poder enviar el mensaje.
+                </div>
+            </div>
+            <div class="g-recaptcha mt-2" data-sitekey=""></div>
+            <div class="row text-right d-block">
+                <button id="recaptcha" type="submit" class="btn btn-color">Enviar <i
+                        class="fas fa-paper-plane"></i></button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- *********************************************************************************************************
+                                            SECCIÓN DEL FOOTER
+    **************************************************************************************************************-->
+
+    {%block pie%}
+    <footer id="footer" class="container py-5">
+        <div class="row">
+            <div class="col-sm-12 col-md mb-4 border-right px-5">
+                &copy; 2020 CUBATREK TRAVEL AGENCY
+                <img class="img-fluid" src="{{asset('assets/img/logo/Logo WayTravelTrek.png')}}" alt="Logo de WayTravelTrek">
+            </div>
+            <div id="navegacion-rapida" class="col-sm-6 col-md border-right px-5">
+                <h5>Navegaci&oacute;n r&aacute;pida</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a href="hoteles/index.html" class="text-muted">Hoteles</a></li>
+                    <li><a href="#" class="text-muted">Casas de renta</a></li>
+                    <li><a href="#" class="text-muted">Autos para rentar</a></li>
+                    <li><a href="#" class="text-muted">Circuitos</a></li>
+                </ul>
+            </div>
+
+            <div id="sobre-nosotros" class="col-sm-6 col-md border-right px-5">
+                <h5>Sobre nosotros</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a href="#" class="text-muted">Pol&iacute;tica de privacidad</a></li>
+                    <li><a href="#" class="text-muted">T&eacute;rminos y condiciones</a></li>
+                    <li><a href="#" class="text-muted">Sobre nosotros</a></li>
+                    <li><a href="#" class="text-muted">&Uacute;ltimas noticias</a></li>
+                </ul>
+            </div>
+
+            <div id="redes-sociales" class="col-sm-6 col-md px-5">
+                <h5>S&iacute;ganos en las redes</h5>
+                <ul class="row row-cols-sm-1 row-cols-md-3 list-unstyled text-small">
+                    <li><a href="#" target="__blank" class="text-muted"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" target="__blank" class="text-muted"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="#" target="__blank" class="text-muted"><i class="fab fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    {%endblock%}
+    <a id="boton-subir" href="#nav" class="btn"><i class="fas fa-arrow-circle-up"></i></a>
+   {% endblock %}
+    <!-- Añadiendo scripts js -->
+    {% block javascripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous">
+    </script>
+    <script src="{{asset("assets/js/app.js")}}"></script>
+   {% endblock %}
+</body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WNGFB9B" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+
+</html>
